@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlowSub — The Future of Decentralized Subscriptions</title>
+  <style>
+    /* ----------------------
+       GLOBAL STYLES
+    -----------------------*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ----------------------
+       FLOATING BACKGROUND SHAPES
+    -----------------------*/
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+      z-index: 1;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .bubble-1 {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: -10%;
+      background: radial-gradient(circle at center, #ff6e7f 0%, #bfe9ff 70%);
+      animation-delay: 1s;
+    }
+
+    .bubble-2 {
+      width: 400px;
+      height: 400px;
+      bottom: -10%;
+      right: -15%;
+      background: radial-gradient(circle at center, #c471ed 0%, #f64f59 60%);
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(40px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* ----------------------
+       HEADER
+    -----------------------*/
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #00ffe7;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #00ffe7;
+    }
+
+    /* ----------------------
+       HERO / INTRO SECTION
+    -----------------------*/
+    .hero-section {
+      position: relative;
+      z-index: 10;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* ----------------------
+       INFO PANELS
+    -----------------------*/
+    .info-section {
+      position: relative;
+      z-index: 10;
+      padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 40px;
+    }
+
+    .panel {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 400px;
+      flex: 1 1 300px;
+      min-height: 250px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .panel.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .panel h2 {
+      margin-bottom: 15px;
+      color: #00ffe7;
+    }
+
+    /* ----------------------
+       ROADMAP SECTION
+    -----------------------*/
+    .roadmap-section {
+      position: relative;
+      z-index: 10;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .roadmap-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+
+    .roadmap-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .roadmap-step {
+      background-color: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      text-align: left;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .roadmap-step.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .roadmap-step h3 {
+      color: #00ffe7;
+      margin-bottom: 10px;
+    }
+
+    /* ----------------------
+       FOOTER
+    -----------------------*/
+    footer {
+      position: relative;
+      z-index: 10;
+      padding: 40px 20px;
+      text-align: center;
+      background-color: rgba(255,255,255,0.1);
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background floating shapes -->
+  <div class="bubble bubble-1"></div>
+  <div class="bubble bubble-2"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">FlowSub</div>
+    <nav>
+      <ul>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#invest">Invest Early</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <h1>The Future of Decentralized Subscriptions</h1>
+    <p>
+      FlowSub is your all-in-one Web3 subscription hub on Solana.  
+      Simplify recurring payments, stake our SUB token for rewards, and  
+      watch your favorite services integrate frictionless crypto billing.
+    </p>
+  </section>
+
+  <!-- INFO SECTION: HOW IT WORKS, INVEST EARLY, ETC. -->
+  <section id="how-it-works" class="info-section">
+    <div class="panel">
+      <h2>How It Works</h2>
+      <p>
+        1. Connect your Solana wallet.  
+        2. Deposit funds in SOL, USDC, or our <strong>SUB</strong> token.  
+        3. Select the subscriptions you want.  
+        4. FlowSub’s smart contract automates monthly payments, so you never miss a bill. 
+      </p>
+      <p>
+        Powered by on-chain logic, FlowSub ensures transparent, tamper-proof transactions. 
+        No middlemen—just you and your favorite services, connected by Solana.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Why SUB Token?</h2>
+      <p>
+        <strong>SUB</strong> is our native token. When you use SUB for subscription payments, 
+        you receive discounts from participating providers. You can also stake SUB to reduce 
+        transaction fees and access premium features (like auto-renew for multiple addresses).
+      </p>
+      <p>
+        The more people adopt SUB, the more valuable it becomes—both as a payment method and an  
+        investment opportunity.
+      </p>
+    </div>
+
+    <div class="panel" id="invest">
+      <h2>Invest Early</h2>
+      <p>
+        Early supporters who acquire SUB tokens now will benefit from lower prices 
+        and exclusive staking perks. As the user base grows, the demand for SUB increases, 
+        potentially raising its market value. That means cheaper subscription costs 
+        for early adopters, plus gains on your token holdings.
+      </p>
+    </div>
+  </section>
+
+  <!-- ROADMAP SECTION -->
+  <section id="roadmap" class="roadmap-section">
+    <h2>Our Roadmap</h2>
+    <div class="roadmap-container">
+      <div class="roadmap-step">
+        <h3>Phase 1: Core Launch</h3>
+        <p>
+          - Deploy FlowSub aggregator contract on Solana Mainnet  
+          - Basic dApp interface for subscription management  
+          - SUB Token TGE (Token Generation Event)
+        </p>
+      </div>
+      <div class="roadmap-step">
+        <h3>Phase 2: Provider Onboarding</h3>
+        <p>
+          - Partnership announcements with major streaming and SaaS providers  
+          - Discount tiers for SUB holders  
+          - Automated monthly withdrawal system for providers
+        </p>
+      </div>
+      <div class="roadmap-step">
+        <h3>Phase 3: Staking & Community DAO</h3>
+        <p>
+          - SUB staking contracts for fee reductions  
+          - Voting power for SUB holders to propose and vote on new features  
+          - Beta testing for advanced analytics and user-friendly mobile app
+        </p>
+      </div>
+      <div class="roadmap-step">
+        <h3>Phase 4: Global Expansion</h3>
+        <p>
+          - Multilingual support for worldwide adoption  
+          - Additional stablecoin integrations (beyond USDC)  
+          - FlowSub Enterprise solutions for large-scale partners
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      &copy; 2024 FlowSub. Built on Solana for secure, decentralized subscription management.  
+      FlowSub is not a financial advisor. Invest responsibly and read our disclaimer before purchasing SUB.
+    </p>
+  </footer>
+
+  <script>
+    /* 
+      JavaScript for basic scroll animations.
+      Panels fade in as you scroll, 
+      Roadmap steps slide in from left.
+    */
+    const panels = document.querySelectorAll('.panel');
+    const roadmapSteps = document.querySelectorAll('.roadmap-step');
+
+    function checkVisibility() {
+      const triggerBottom = window.innerHeight * 0.9;
+
+      // Panels
+      panels.forEach(panel => {
+        const panelTop = panel.getBoundingClientRect().top;
+        if (panelTop < triggerBottom) {
+          panel.classList.add('visible');
+        }
+      });
+
+      // Roadmap steps
+      roadmapSteps.forEach(step => {
+        const stepTop = step.getBoundingClientRect().top;
+        if (stepTop < triggerBottom) {
+          step.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    // Trigger the check on load
+    checkVisibility();
+  </script>
+
+</body>
+</html>
